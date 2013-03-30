@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-03-30T10:37:55+00:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[Saving the planet, one website at a time]]></title>
+  <link href="http://th3james.github.com/atom.xml" rel="self"/>
+  <link href="http://th3james.github.com/"/>
+  <updated>2013-03-30T11:45:00+00:00</updated>
+  <id>http://th3james.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[th3james]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
+    <title type="html"><![CDATA[th3james' blog IV: A new home]]></title>
+    <link href="http://th3james.github.com/blog/2013/03/30/blog-migrated/"/>
+    <updated>2013-03-30T11:07:00+00:00</updated>
+    <id>http://th3james.github.com/blog/2013/03/30/blog-migrated</id>
+    <content type="html"><![CDATA[<p>So, posterous is dead, so I&#8217;ve been forced to move this blog to a new home. Perhaps foolishly, I&#8217;m trusting another free provider (this time, github) to host my blog. I am at least running Octopress this time, so migration should be easier.</p>
+
+<p>Anyway, apologies for being a bit quiet on here recently, but I&#8217;ve been busy with lots of exciting stuff to do with Backbone.js which I&#8217;ll be releasing over the next few months.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Backbone.ViewManager - A backbone extension to stop view memory/binding leaks]]></title>
-    <link href="http://yoursite.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/"/>
+    <link href="http://th3james.github.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/"/>
     <updated>2012-08-10T00:00:00+01:00</updated>
-    <id>http://yoursite.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s</id>
+    <id>http://th3james.github.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s</id>
     <content type="html"><![CDATA[<p>Recently when working with Backbone I discovered how easy it was to leak Backbone Views into memory by not taking care to unbind all events listeners associated with views before discarding them. This issue is discussed at length by Derick Bailey in his post about backbone &#8216;Zombie&#8217; views:&nbsp;<a href="http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/">http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/</a></p>
 <p>This issue for me was particularly pronounced when swapping objects in and out of a &#8216;content&#8217; DOM element, quickly ruining my apps performance. So, I wrote a library that extends Backbone.View to help keep reference of view bindings, and dispose of them when discarding. I call it Backbone.ViewManager, take a look over on github:</p>
 <p><a href="https://github.com/th3james/Backbone.ViewManager">https://github.com/th3james/Backbone.ViewManager</a></p>
@@ -26,9 +37,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fixing locale issues over SSH after zsh upgrade]]></title>
-    <link href="http://yoursite.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/"/>
+    <link href="http://th3james.github.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/"/>
     <updated>2012-07-18T00:00:00+01:00</updated>
-    <id>http://yoursite.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra</id>
+    <id>http://th3james.github.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra</id>
     <content type="html"><![CDATA[<p>I recently upgraded to the rather nice <a href="https://github.com/robbyrussell/oh-my-zsh/">OhMyZsh</a>, which I was enjoying, until SSH&#8217;ed to one of our Ubuntu servers, tabbed to auto complete, and was presented with this message:</p>
 <div style="background-color: #000000; color: #00ff00; font-family: monospace; padding: 5px;"><em>-bash: warning: setlocale: LC_CTYPE: cannot change locale (en_GB.UTF-8)</em></div>
 <p>&#8230; each and every time I tabbed. Needless to say, this gets pretty annoying fast.</p>
@@ -44,9 +55,9 @@
   
   <entry>
     <title type="html"><![CDATA[Taking JavaScript Seriously (feat. Backbone.js) (Slides)]]></title>
-    <link href="http://yoursite.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/"/>
+    <link href="http://th3james.github.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/"/>
     <updated>2011-11-21T00:00:00+00:00</updated>
-    <id>http://yoursite.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s</id>
+    <id>http://th3james.github.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s</id>
     <content type="html"><![CDATA[<p>I gave a talk last week about &#8216;Taking JavaScript Seriously&#8217;, talking about&nbsp;why you should be taking JavaScript seriously, how to improve your JavaScript by avoiding some common pitfalls, and using Backbone.js to make larger applications easier to build and maintain.</p>
 <p><a href="http://speakerdeck.com/u/th3james/p/taking-javascript-seriously-feat-backbonejs">Check out the slides on SpeakerDeck</a></p>
 ]]></content>
@@ -54,9 +65,9 @@
   
   <entry>
     <title type="html"><![CDATA[Understanding undefined, null and testing variable assignment in Javascript]]></title>
-    <link href="http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript/"/>
+    <link href="http://th3james.github.com/blog/2011/09/13/understanding-undefined-in-javascript/"/>
     <updated>2011-09-13T00:00:00+01:00</updated>
-    <id>http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript</id>
+    <id>http://th3james.github.com/blog/2011/09/13/understanding-undefined-in-javascript</id>
     <content type="html"><![CDATA[<p>During a code review a college suggested that we could change one of my javascript switches on an non-existant value:</p>
 <p><script src="https://gist.github.com/1214594.js"></script></p>
 <p>Which seemed to make sense because, since we don&#8217;t want to perform any type coercion on the null object, this should be faster.</p>
@@ -82,9 +93,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using PJAX with Rails to AJAX navigation]]></title>
-    <link href="http://yoursite.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/"/>
+    <link href="http://th3james.github.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/"/>
     <updated>2011-05-30T00:00:00+01:00</updated>
-    <id>http://yoursite.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation</id>
+    <id>http://th3james.github.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation</id>
     <content type="html"><![CDATA[<p>PJAX is a javascript library which was mentioned by DHH in his Railsconf 11 keynote</p>
 <p>In their own words:</p>
 <p><em>pjax loads HTML from your server into the current page without a full reload. It&#8217;s ajax with real permalinks, page titles, and a working back button that fully degrades.<br /> pjax enhances the browsing experience - nothing more.</em></p>
@@ -113,9 +124,9 @@
   
   <entry>
     <title type="html"><![CDATA[Styling active links in Rails]]></title>
-    <link href="http://yoursite.com/blog/2011/05/17/styling-active-links-in-rails/"/>
+    <link href="http://th3james.github.com/blog/2011/05/17/styling-active-links-in-rails/"/>
     <updated>2011-05-17T00:00:00+01:00</updated>
-    <id>http://yoursite.com/blog/2011/05/17/styling-active-links-in-rails</id>
+    <id>http://th3james.github.com/blog/2011/05/17/styling-active-links-in-rails</id>
     <content type="html"><![CDATA[<p>We often want to style active links in our Rails to improve the users perception of their location in a given website. However, <em>a:active</em> is rarely sufficient when you&#8217;ve got sub menus on your site.</p>
 <p>I went searching for people who&#8217;d already tackled this problem and found the post by &#8216;jammanbo&#8217; on this page:</p>
 <p><a href="http://www.ruby-forum.com/topic/178087#779606" title="http://www.ruby-forum.com/topic/178087#779606">http://www.ruby-forum.com/topic/178087</a></p>
