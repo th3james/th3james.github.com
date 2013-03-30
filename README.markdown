@@ -20,6 +20,12 @@ Check out [Octopress.org](http://octopress.org/docs) for guides and documentatio
 
 We love to see people contributing to Octopress, whether it's a bug report, feature suggestion or a pull request. At the moment, we try to keep the core slick and lean, focusing on basic blogging needs, so some of your suggestions might not find their way into Octopress. For those ideas, we started a [list of 3rd party plug-ins](https://github.com/imathis/octopress/wiki/3rd-party-plugins), where you can link your own Octopress plug-in repositories. For the future, we're thinking about ways to easier add them them into our main releases.
 
+## Deployment
+
+This blog is deployed to github pages, using the instructions in [the octopress docs](http://octopress.org/docs/deploying/github/), to deploy, run:
+
+    rake generate
+    rake deploy
 
 ## License
 (The MIT License)
