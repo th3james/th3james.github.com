@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Understanding undefined, null and testing variable assignment in Javascript - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="During a code review a college suggested that we could change one of my javascript switches on an non-existant value: Which seemed to make sense &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Understanding Undefined, Null and Testing Variable Assignment in Javascript</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-13T00:00:00+01:00" pubdate data-updated="true">Sep 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>During a code review a college suggested that we could change one of my javascript switches on an non-existant value:</p>
+<p><script src="https://gist.github.com/1214594.js"></script></p>
+<p>Which seemed to make sense because, since we don&#8217;t want to perform any type coercion on the null object, this should be faster.</p>
+<p>However, when I reloaded the page, the comparison (previously returning true) was now returning false. Confused, I fired up the web inspector to discover this:</p>
+<p><script src="https://gist.github.com/1214606.js"></script></p>
+<p>Ok, so evidently <strong>null</strong> and <strong>undefined</strong> are different things, even though I&#8217;d been using them interchangeably (like many web developers, I made the mistake of diving in javascript without bothering to learn it&#8230;)</p>
+<h2>Undefined and null</h2>
+<p>So what exactly is the difference between the two? Undefined is the <strong>default value</strong> javascript variables take before they are assigned a value. Null, on the other hand, is the <strong>intentional absence</strong> of a value. When using ==, the types of both undefined and null coerce to false.</p>
+<h2>The many meanings of undefined</h2>
+<p>So, you can just do this:</p>
+<p><script src="https://gist.github.com/1214616.js"></script></p>
+<p>and in most cases, that will work. However, undefined is actually 3 things in javascript; a <strong>type</strong>, a <strong>value</strong> and a <strong>variable</strong>. The issue with the above code is that we&#8217;re not checking if the some_var is &#8216;undefined&#8217;, we&#8217;re checking if it&#8217;s equal to the global variable called undefined. Undefined (the variable) exists uninitialised in javascript in the global scope and like all uninitialised variables, it is set to undefined (the value). For more detail on this I highly recommend checking out <a href="http://javascriptweblog.wordpress.com/2010/08/16/understanding-undefined-and-preventing-referenceerrors/">Angus Croll&#8217;s post on the subject</a></p>
+<p>The problem is, somewhere in your code or in a library, someone else could overwrite the undefined variable to be a string:</p>
+<p><script src="https://gist.github.com/1214625.js"></script></p>
+<p>Which would mean all your comparisons to undefined would compare to a string! There&#8217;s no good reason to do this, but given the potential for javascript variables leaking into the global scope, it&#8217;s worth not comparing to the undefined variable in case someone in a library or other javascript file has accidentally (or maliciously!) overridden it.</p>
+<p>It&#8217;s worth noting that ECMA 5 forbids setting the value of undefined, but currently, only Safari enforces this.</p>
+<h2>Comparing the types</h2>
+<p>So if we can&#8217;t compare to the undefined variable, what should we do? Remember I said that undefined was also a type? Well, an uninitialised variable&#8217;s value is still of the <strong>type</strong> undefined. So we can use javascript&#8217;s typeof method to get the values type as a string:</p>
+<p><script src="https://gist.github.com/1214638.js"></script></p>
+<p>Hopefully this clears up not just how to test assignment correctly in JavaScript, but also why we do it this way.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-13T00:00:00+01:00" pubdate data-updated="true">Sep 13<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript/" data-via="" data-counturl="http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/" title="Previous Post: Using PJAX with Rails to AJAX navigation">&laquo; Using PJAX with Rails to AJAX navigation</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/" title="Next Post: Taking JavaScript Seriously (feat. Backbone.js) (Slides)">Taking JavaScript Seriously (feat. Backbone.js) (Slides) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/">Backbone.ViewManager - A backbone extension to stop view memory/binding leaks</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/">Fixing locale issues over SSH after zsh upgrade</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (feat. Backbone.js) (Slides)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/09/13/understanding-undefined-in-javascript/">Understanding undefined, null and testing variable assignment in Javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/">Using PJAX with Rails to AJAX navigation</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

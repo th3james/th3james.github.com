@@ -1,138 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
-
-  
-  <meta name="description" content="Recently when working with Backbone I discovered how easy it was to leak Backbone Views into memory by not taking care to unbind all events listeners &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://yoursite.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
-  
-    <h2>A blogging framework for hackers.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:yoursite.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-03-30T10:37:55+00:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/">Backbone.ViewManager - a Backbone Extension to Stop View Memory/binding Leaks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2012-08-10T00:00:00+01:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently when working with Backbone I discovered how easy it was to leak Backbone Views into memory by not taking care to unbind all events listeners associated with views before discarding them. This issue is discussed at length by Derick Bailey in his post about backbone &#8216;Zombie&#8217; views:&nbsp;<a href="http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/">http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/</a></p>
+  <entry>
+    <title type="html"><![CDATA[Backbone.ViewManager - A backbone extension to stop view memory/binding leaks]]></title>
+    <link href="http://yoursite.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/"/>
+    <updated>2012-08-10T00:00:00+01:00</updated>
+    <id>http://yoursite.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s</id>
+    <content type="html"><![CDATA[<p>Recently when working with Backbone I discovered how easy it was to leak Backbone Views into memory by not taking care to unbind all events listeners associated with views before discarding them. This issue is discussed at length by Derick Bailey in his post about backbone &#8216;Zombie&#8217; views:&nbsp;<a href="http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/">http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/</a></p>
 <p>This issue for me was particularly pronounced when swapping objects in and out of a &#8216;content&#8217; DOM element, quickly ruining my apps performance. So, I wrote a library that extends Backbone.View to help keep reference of view bindings, and dispose of them when discarding. I call it Backbone.ViewManager, take a look over on github:</p>
 <p><a href="https://github.com/th3james/Backbone.ViewManager">https://github.com/th3james/Backbone.ViewManager</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/">Fixing Locale Issues Over SSH After Zsh Upgrade</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T00:00:00+01:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently upgraded to the rather nice <a href="https://github.com/robbyrussell/oh-my-zsh/">OhMyZsh</a>, which I was enjoying, until SSH&#8217;ed to one of our Ubuntu servers, tabbed to auto complete, and was presented with this message:</p>
+  <entry>
+    <title type="html"><![CDATA[Fixing locale issues over SSH after zsh upgrade]]></title>
+    <link href="http://yoursite.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/"/>
+    <updated>2012-07-18T00:00:00+01:00</updated>
+    <id>http://yoursite.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra</id>
+    <content type="html"><![CDATA[<p>I recently upgraded to the rather nice <a href="https://github.com/robbyrussell/oh-my-zsh/">OhMyZsh</a>, which I was enjoying, until SSH&#8217;ed to one of our Ubuntu servers, tabbed to auto complete, and was presented with this message:</p>
 <div style="background-color: #000000; color: #00ff00; font-family: monospace; padding: 5px;"><em>-bash: warning: setlocale: LC_CTYPE: cannot change locale (en_GB.UTF-8)</em></div>
 <p>&#8230; each and every time I tabbed. Needless to say, this gets pretty annoying fast.</p>
 <p>I tried a few solutions on the internet, before stumbling across <a href="http://blog.andrewbeacock.com/2007/01/how-to-change-your-default-locale-on.html">this</a>&nbsp;post which pointed me towards <span style="color: #333333; font-family: monospace;">/var/lib/locales/supported.d/local.</span></p>
@@ -142,79 +39,25 @@
 <p>Once you&#8217;ve done that:</p>
 <div style="background-color: #000; color: #7bf163; font-family: monospace; padding: 5px;"><em>sudo dpkg-reconfigure locales</em></div>
 <p>Login/logout and enjoy working tab completion again.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (Feat. Backbone.js) (Slides)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-21T00:00:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I gave a talk last week about &#8216;Taking JavaScript Seriously&#8217;, talking about&nbsp;why you should be taking JavaScript seriously, how to improve your JavaScript by avoiding some common pitfalls, and using Backbone.js to make larger applications easier to build and maintain.</p>
+  <entry>
+    <title type="html"><![CDATA[Taking JavaScript Seriously (feat. Backbone.js) (Slides)]]></title>
+    <link href="http://yoursite.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/"/>
+    <updated>2011-11-21T00:00:00+00:00</updated>
+    <id>http://yoursite.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s</id>
+    <content type="html"><![CDATA[<p>I gave a talk last week about &#8216;Taking JavaScript Seriously&#8217;, talking about&nbsp;why you should be taking JavaScript seriously, how to improve your JavaScript by avoiding some common pitfalls, and using Backbone.js to make larger applications easier to build and maintain.</p>
 <p><a href="http://speakerdeck.com/u/th3james/p/taking-javascript-seriously-feat-backbonejs">Check out the slides on SpeakerDeck</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/09/13/understanding-undefined-in-javascript/">Understanding Undefined, Null and Testing Variable Assignment in Javascript</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-09-13T00:00:00+01:00" pubdate data-updated="true">Sep 13<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>During a code review a college suggested that we could change one of my javascript switches on an non-existant value:</p>
+  <entry>
+    <title type="html"><![CDATA[Understanding undefined, null and testing variable assignment in Javascript]]></title>
+    <link href="http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript/"/>
+    <updated>2011-09-13T00:00:00+01:00</updated>
+    <id>http://yoursite.com/blog/2011/09/13/understanding-undefined-in-javascript</id>
+    <content type="html"><![CDATA[<p>During a code review a college suggested that we could change one of my javascript switches on an non-existant value:</p>
 <p><script src="https://gist.github.com/1214594.js"></script></p>
 <p>Which seemed to make sense because, since we don&#8217;t want to perform any type coercion on the null object, this should be faster.</p>
 <p>However, when I reloaded the page, the comparison (previously returning true) was now returning false. Confused, I fired up the web inspector to discover this:</p>
@@ -234,42 +77,15 @@
 <p>So if we can&#8217;t compare to the undefined variable, what should we do? Remember I said that undefined was also a type? Well, an uninitialised variable&#8217;s value is still of the <strong>type</strong> undefined. So we can use javascript&#8217;s typeof method to get the values type as a string:</p>
 <p><script src="https://gist.github.com/1214638.js"></script></p>
 <p>Hopefully this clears up not just how to test assignment correctly in JavaScript, but also why we do it this way.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/">Using PJAX With Rails to AJAX Navigation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-30T00:00:00+01:00" pubdate data-updated="true">May 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>PJAX is a javascript library which was mentioned by DHH in his Railsconf 11 keynote</p>
+  <entry>
+    <title type="html"><![CDATA[Using PJAX with Rails to AJAX navigation]]></title>
+    <link href="http://yoursite.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/"/>
+    <updated>2011-05-30T00:00:00+01:00</updated>
+    <id>http://yoursite.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation</id>
+    <content type="html"><![CDATA[<p>PJAX is a javascript library which was mentioned by DHH in his Railsconf 11 keynote</p>
 <p>In their own words:</p>
 <p><em>pjax loads HTML from your server into the current page without a full reload. It&#8217;s ajax with real permalinks, page titles, and a working back button that fully degrades.<br /> pjax enhances the browsing experience - nothing more.</em></p>
 <p><em> </em></p>
@@ -292,42 +108,15 @@
 <p>This should be all you need to do to get PJAX working in Rails 3.0, you should find that navigation on your selected elements happens using AJAX requests in supported browsers (basically anything not IE).</p>
 <p>You can see it in action on my band&#8217;s website:</p>
 <p><a href="http://barcodechannel.com" title="http://barcodechannel.com"> <a href="http://barcodechannel.com">http://barcodechannel.com</a></a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/05/17/styling-active-links-in-rails/">Styling Active Links in Rails</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-17T00:00:00+01:00" pubdate data-updated="true">May 17<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We often want to style active links in our Rails to improve the users perception of their location in a given website. However, <em>a:active</em> is rarely sufficient when you&#8217;ve got sub menus on your site.</p>
+  <entry>
+    <title type="html"><![CDATA[Styling active links in Rails]]></title>
+    <link href="http://yoursite.com/blog/2011/05/17/styling-active-links-in-rails/"/>
+    <updated>2011-05-17T00:00:00+01:00</updated>
+    <id>http://yoursite.com/blog/2011/05/17/styling-active-links-in-rails</id>
+    <content type="html"><![CDATA[<p>We often want to style active links in our Rails to improve the users perception of their location in a given website. However, <em>a:active</em> is rarely sufficient when you&#8217;ve got sub menus on your site.</p>
 <p>I went searching for people who&#8217;d already tackled this problem and found the post by &#8216;jammanbo&#8217; on this page:</p>
 <p><a href="http://www.ruby-forum.com/topic/178087#779606" title="http://www.ruby-forum.com/topic/178087#779606">http://www.ruby-forum.com/topic/178087</a></p>
 <p>jammanbo&#8217;s helper detects if the current path matches another path&#8217;s controller and action, returning &#8216;active&#8217; or &#8221; to use as the link class. While this is useful, there are many times when we want to match to a different level of specificity for links. For example, top level menus in sites I&#8217;m working on tend to match a controller, and sub menu entries to the action. Other times, we also want to match the route&#8217;s parameters.</p>
@@ -342,84 +131,7 @@
 <p>To use it, simply drop it into your ApplicationHelper, then start styling links with:</p>
 <p><script src="https://gist.github.com/976484.js"></script></p>
 <p>Have fun!</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/">Backbone.ViewManager - A backbone extension to stop view memory/binding leaks</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/">Fixing locale issues over SSH after zsh upgrade</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (feat. Backbone.js) (Slides)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/09/13/understanding-undefined-in-javascript/">Understanding undefined, null and testing variable assignment in Javascript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/">Using PJAX with Rails to AJAX navigation</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Your Name -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
