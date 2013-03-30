@@ -1,0 +1,32 @@
+---
+layout: post
+title: Using PJAX with Rails to AJAX navigation
+published: true
+date: 2011-05-30
+categories: []
+posterous_url: http://th3james.posterous.com/using-pjax-with-rails-to-ajax-navigation
+posterous_slug: using-pjax-with-rails-to-ajax-navigation
+---
+<p>PJAX is a javascript library which was mentioned by DHH in his Railsconf 11 keynote</p>
+<p>In their own words:</p>
+<p><em>pjax loads HTML from your server into the current page without a full reload. It's ajax with real permalinks, page titles, and a working back button that fully degrades.<br /> pjax enhances the browsing experience - nothing more.</em></p>
+<p><em> </em></p>
+<p><em><a href="https://github.com/defunkt/jquery-pjax  " title="https://github.com/defunkt/jquery-pjax  "> <a href="https://github.com/defunkt/jquery-pjax">https://github.com/defunkt/jquery-pjax</a> </a></em></p>
+<p>PJAX makes navigation much faster and feels more like using native app than a website. While only loading parts of the page through AJAX isn't exactly a new thing, PJAX makes it easier to add it unobtrusively, with proper URLs and a working back button.</p>
+<p>The project appears to be pretty new from the github page, and there isn't a lot of documentation, so I though I'd document how I got it working with Rails 3.0</p>
+<h2>Adding PJAX to your project</h2>
+<p>First, you need to grab jquery.pjax.js and add it to your project (Oh, you'll need JQuery too, but I'm guessing most of you have it anyway :-)</p>
+<p>Next, add some javascript to your application.js file (or whatever your sitewide JS location is) to tell your chosen links to send using PJAX:</p>
+<p><script src="https://gist.github.com/993070.js"></script></p>
+<p>This code tells the browser to send all the links in ul.menu using pjax, and to load the results into the #main</p>
+<p>This alone isn't enough to make PJAX work. PJAX sends the request through AJAX, but if the response contains the &lt;html&gt; &nbsp;tag, PJAX considers it a full page response, and reloads the whole page.</p>
+<p>So, to make PJAX load the returned content into #main object, you must only return the HTML fragment, without the layout around it. To do this, you simply do a render <em>:layout =&gt; false</em>. However, adding this to ever controller action soon get's pretty tedious.</p>
+<h2>Not returning a layout on PJAX requests</h2>
+<p>Thankfully, PJAX helpfully adds '<em>X-PJAX = true</em>' to its request headers. So, to return all PJAX requests without the layout file, it's simply a case of checking for the header parameter, and adding :layout =&gt; false if so.</p>
+<p>I did this by hacking the Rails render method:</p>
+<p><script src="https://gist.github.com/999482.js"></script></p>
+<p>This was the best approach I could find to do this for all requests, if anyone knows of any better ways, let me know!</p>
+<h2>That's it!</h2>
+<p>This should be all you need to do to get PJAX working in Rails 3.0, you should find that navigation on your selected elements happens using AJAX requests in supported browsers (basically anything not IE).</p>
+<p>You can see it in action on my band's website:</p>
+<p><a href="http://barcodechannel.com" title="http://barcodechannel.com"> <a href="http://barcodechannel.com">http://barcodechannel.com</a></a></p>

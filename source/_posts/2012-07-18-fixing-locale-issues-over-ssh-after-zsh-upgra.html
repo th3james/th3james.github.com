@@ -1,0 +1,19 @@
+---
+layout: post
+title: Fixing locale issues over SSH after zsh upgrade
+published: true
+date: 2012-07-18
+categories: []
+posterous_url: http://th3james.posterous.com/fixing-locale-issues-over-ssh-after-zsh-upgra
+posterous_slug: fixing-locale-issues-over-ssh-after-zsh-upgra
+---
+<p>I recently upgraded to the rather nice <a href="https://github.com/robbyrussell/oh-my-zsh/">OhMyZsh</a>, which I was enjoying, until SSH'ed to one of our Ubuntu servers, tabbed to auto complete, and was presented with this message:</p>
+<div style="background-color: #000000; color: #00ff00; font-family: monospace; padding: 5px;"><em>-bash: warning: setlocale: LC_CTYPE: cannot change locale (en_GB.UTF-8)</em></div>
+<p>... each and every time I tabbed. Needless to say, this gets pretty annoying fast.</p>
+<p>I tried a few solutions on the internet, before stumbling across <a href="http://blog.andrewbeacock.com/2007/01/how-to-change-your-default-locale-on.html">this</a>&nbsp;post which pointed me towards <span style="color: #333333; font-family: monospace;">/var/lib/locales/supported.d/local.</span></p>
+<p>To fix the issue, you need to add a line to that file for the locale that bash is complaining about:</p>
+<div style="background-color: #000; color: #7bf163; font-family: monospace; padding: 5px;"><em>en_GB ISO-8859-1<br /> en_GB.UTF-8 UTF-8</em></div>
+<p>Since UTF should be the same for each locale, we just point en_GB.UTF to UTF-8 (this is probably the same as the default locale your system has).</p>
+<p>Once you've done that:</p>
+<div style="background-color: #000; color: #7bf163; font-family: monospace; padding: 5px;"><em>sudo dpkg-reconfigure locales</em></div>
+<p>Login/logout and enjoy working tab completion again.</p>

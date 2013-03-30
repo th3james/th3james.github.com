@@ -1,0 +1,24 @@
+---
+layout: post
+title: Styling active links in Rails
+published: true
+date: 2011-05-17
+categories: []
+posterous_url: http://th3james.posterous.com/styling-active-links-in-rails
+posterous_slug: styling-active-links-in-rails
+---
+<p>We often want to style active links in our Rails to improve the users perception of their location in a given website. However, <em>a:active</em> is rarely sufficient when you've got sub menus on your site.</p>
+<p>I went searching for people who'd already tackled this problem and found the post by 'jammanbo' on this page:</p>
+<p><a href="http://www.ruby-forum.com/topic/178087#779606" title="http://www.ruby-forum.com/topic/178087#779606">http://www.ruby-forum.com/topic/178087</a></p>
+<p>jammanbo's helper detects if the current path matches another path's controller and action, returning 'active' or '' to use as the link class. While this is useful, there are many times when we want to match to a different level of specificity for links. For example, top level menus in sites I'm working on tend to match a controller, and sub menu entries to the action. Other times, we also want to match the route's parameters.</p>
+<p>Taking this into consideration, I came up with this helper:</p>
+<p><script src="https://gist.github.com/976444.js"></script></p>
+<p>This helper returns a string, either 'active' or '' depending on if the URI parameter matches. The optional second parameter defines the specificity, either</p>
+<ul>
+<li><strong>:action</strong> (default) match both controller and action</li>
+<li><strong>:controller</strong> match just controller, or</li>
+<li><strong>:complete</strong> matches all parameters in the route (except extra ?param=whatever)</li>
+</ul>
+<p>To use it, simply drop it into your ApplicationHelper, then start styling links with:</p>
+<p><script src="https://gist.github.com/976484.js"></script></p>
+<p>Have fun!</p>

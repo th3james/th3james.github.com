@@ -1,0 +1,12 @@
+---
+layout: post
+title: Backbone.ViewManager - A backbone extension to stop view memory/binding leaks
+published: true
+date: 2012-08-10
+categories: []
+posterous_url: http://th3james.posterous.com/backboneviewmanager-a-backbone-extension-to-s
+posterous_slug: backboneviewmanager-a-backbone-extension-to-s
+---
+<p>Recently when working with Backbone I discovered how easy it was to leak Backbone Views into memory by not taking care to unbind all events listeners associated with views before discarding them. This issue is discussed at length by Derick Bailey in his post about backbone 'Zombie' views:&nbsp;<a href="http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/">http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/</a></p>
+<p>This issue for me was particularly pronounced when swapping objects in and out of a 'content' DOM element, quickly ruining my apps performance. So, I wrote a library that extends Backbone.View to help keep reference of view bindings, and dispose of them when discarding. I call it Backbone.ViewManager, take a look over on github:</p>
+<p><a href="https://github.com/th3james/Backbone.ViewManager">https://github.com/th3james/Backbone.ViewManager</a></p>

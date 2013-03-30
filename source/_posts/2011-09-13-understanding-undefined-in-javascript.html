@@ -1,0 +1,29 @@
+---
+layout: post
+title: Understanding undefined, null and testing variable assignment in Javascript
+published: true
+date: 2011-09-13
+categories: []
+posterous_url: http://th3james.posterous.com/understanding-undefined-in-javascript
+posterous_slug: understanding-undefined-in-javascript
+---
+<p>During a code review a college suggested that we could change one of my javascript switches on an non-existant value:</p>
+<p><script src="https://gist.github.com/1214594.js"></script></p>
+<p>Which seemed to make sense because, since we don't want to perform any type coercion on the null object, this should be faster.</p>
+<p>However, when I reloaded the page, the comparison (previously returning true) was now returning false. Confused, I fired up the web inspector to discover this:</p>
+<p><script src="https://gist.github.com/1214606.js"></script></p>
+<p>Ok, so evidently <strong>null</strong> and <strong>undefined</strong> are different things, even though I'd been using them interchangeably (like many web developers, I made the mistake of diving in javascript without bothering to learn it...)</p>
+<h2>Undefined and null</h2>
+<p>So what exactly is the difference between the two? Undefined is the <strong>default value</strong> javascript variables take before they are assigned a value. Null, on the other hand, is the <strong>intentional absence</strong> of a value. When using ==, the types of both undefined and null coerce to false.</p>
+<h2>The many meanings of undefined</h2>
+<p>So, you can just do this:</p>
+<p><script src="https://gist.github.com/1214616.js"></script></p>
+<p>and in most cases, that will work. However, undefined is actually 3 things in javascript; a <strong>type</strong>, a <strong>value</strong> and a <strong>variable</strong>. The issue with the above code is that we're not checking if the some_var is 'undefined', we're checking if it's equal to the global variable called undefined. Undefined (the variable) exists uninitialised in javascript in the global scope and like all uninitialised variables, it is set to undefined (the value). For more detail on this I highly recommend checking out <a href="http://javascriptweblog.wordpress.com/2010/08/16/understanding-undefined-and-preventing-referenceerrors/">Angus Croll's post on the subject</a></p>
+<p>The problem is, somewhere in your code or in a library, someone else could overwrite the undefined variable to be a string:</p>
+<p><script src="https://gist.github.com/1214625.js"></script></p>
+<p>Which would mean all your comparisons to undefined would compare to a string! There's no good reason to do this, but given the potential for javascript variables leaking into the global scope, it's worth not comparing to the undefined variable in case someone in a library or other javascript file has accidentally (or maliciously!) overridden it.</p>
+<p>It's worth noting that ECMA 5 forbids setting the value of undefined, but currently, only Safari enforces this.</p>
+<h2>Comparing the types</h2>
+<p>So if we can't compare to the undefined variable, what should we do? Remember I said that undefined was also a type? Well, an uninitialised variable's value is still of the <strong>type</strong> undefined. So we can use javascript's typeof method to get the values type as a string:</p>
+<p><script src="https://gist.github.com/1214638.js"></script></p>
+<p>Hopefully this clears up not just how to test assignment correctly in JavaScript, but also why we do it this way.</p>
