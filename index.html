@@ -9,7 +9,7 @@
   <meta name="author" content="th3james">
 
   
-  <meta name="description" content="So, posterous is dead, so I&#8217;ve been forced to move this blog to a new home. Perhaps foolishly, I&#8217;m trusting another free provider (this &hellip;">
+  <meta name="description" content="I&#8217;ve just finished building a tool which let&#8217;s you remix loops of my band&#8217;s newest single. It&#8217;s build using Backbone.js and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/10/browserloop-remix-music-in-your-browser/">BrowserLoop: Remix Music in Your Browser</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-10T08:16:00+01:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve just finished building a tool which let&#8217;s you remix loops of my band&#8217;s newest single. It&#8217;s build using Backbone.js and Coffeescript, and uses HTML5 audio to play back the &#8216;loops&#8217; which make up the track. It&#8217;s pretty cool, give it a try:</p>
+
+<h3><a href="http://browserloop.barcodechannel.com">Try BrowserLoop</a></h3>
+
+<p><a href="http://browserloop.barcodechannel.com"><img style="width: 100%;max-width: 800px;" src="http://dl.dropboxusercontent.com/u/2324263/BrowserLoop.png"/></a></p>
+
+<p>The app works by setting up a <a href="https://github.com/th3james/browserLoop/blob/master/src/clock.coffee">Clock</a> object at the BPM of the track, which then uses setTimeout() to fire a Backbone.event for each beat, which each of the <a href="https://github.com/th3james/browserLoop/blob/master/src/views/loop_view.coffee">loops then listen to</a>. By default, HTML5 audio does not loop seamlessly, as there is a slightly delay when seeking to the beginning of an audio file, then restarting. To get around this, I load each audio file into 2 audio tags, and switch between them with a ~50ms overlap. This isn&#8217;t always completely reliable, so there is a slider to adjust this overlay at the bottom of the app</p>
+
+<p><a href="https://github.com/th3james/browserLoop">Check out the source code on github</a></p>
+
+<p>Unfortunately, mobile devices (iOS etc.) don&#8217;t support pre-downloading HTML5 audio and video, which means the site doesn&#8217;t work on them. This is apparently done to stop users racking up data usage on 4G, as the files are only downloaded once the user clicks play. It&#8217;s is a shame, because I&#8217;d have loved to use this on the iPad!</p>
+
+<p>It&#8217;s also worth noting, I built this using a tool I&#8217;m developing with <a href="https://twitter.com/amulligan">@amulligan</a> to make building Backbone.js apps easier, but more on that later :-)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -400,6 +448,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/05/10/browserloop-remix-music-in-your-browser/">BrowserLoop: Remix music in your browser</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/03/30/blog-migrated/">th3james&#8217; blog IV: A new home</a>
       </li>
     
@@ -413,10 +465,6 @@
     
       <li class="post">
         <a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (feat. Backbone.js) (Slides)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/09/13/understanding-undefined-in-javascript/">Understanding undefined, null and testing variable assignment in Javascript</a>
       </li>
     
   </ul>

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Saving the planet, one website at a time</title>
+  <title>BrowserLoop: Remix music in your browser - Saving the planet, one website at a time</title>
   <meta name="author" content="th3james">
 
   
-  <meta name="description" content="Blog Archive 2013 BrowserLoop: Remix music in your browser
-May 10 2013 posted in Backbone.js, Coffeescript th3james&#8217; blog IV: A new home
-Mar &hellip;">
+  <meta name="description" content="I&#8217;ve just finished building a tool which let&#8217;s you remix loops of my band&#8217;s newest single. It&#8217;s build using Backbone.js and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Mar &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://th3james.github.com/blog/archives">
+  <link rel="canonical" href="http://th3james.github.com/blog/2013/05/10/browserloop-remix-music-in-your-browser">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Saving the planet, one website at a time" type="application/atom+xml">
@@ -66,111 +64,96 @@ Mar &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">BrowserLoop: Remix Music in Your Browser</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-10T08:16:00+01:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>I&#8217;ve just finished building a tool which let&#8217;s you remix loops of my band&#8217;s newest single. It&#8217;s build using Backbone.js and Coffeescript, and uses HTML5 audio to play back the &#8216;loops&#8217; which make up the track. It&#8217;s pretty cool, give it a try:</p>
 
-  
-  <h2>2013</h2>
+<h3><a href="http://browserloop.barcodechannel.com">Try BrowserLoop</a></h3>
 
-<article>
-  
-<h1><a href="/blog/2013/05/10/browserloop-remix-music-in-your-browser/">BrowserLoop: Remix music in your browser</a></h1>
-<time datetime="2013-05-10T08:16:00+01:00" pubdate><span class='month'>May</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+<p><a href="http://browserloop.barcodechannel.com"><img style="width: 100%;max-width: 800px;" src="http://dl.dropboxusercontent.com/u/2324263/BrowserLoop.png"/></a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/backbone-dot-js/'>Backbone.js</a>, <a class='category' href='/blog/categories/coffeescript/'>Coffeescript</a></span>
-</footer>
+<p>The app works by setting up a <a href="https://github.com/th3james/browserLoop/blob/master/src/clock.coffee">Clock</a> object at the BPM of the track, which then uses setTimeout() to fire a Backbone.event for each beat, which each of the <a href="https://github.com/th3james/browserLoop/blob/master/src/views/loop_view.coffee">loops then listen to</a>. By default, HTML5 audio does not loop seamlessly, as there is a slightly delay when seeking to the beginning of an audio file, then restarting. To get around this, I load each audio file into 2 audio tags, and switch between them with a ~50ms overlap. This isn&#8217;t always completely reliable, so there is a slider to adjust this overlay at the bottom of the app</p>
 
+<p><a href="https://github.com/th3james/browserLoop">Check out the source code on github</a></p>
 
-</article>
+<p>Unfortunately, mobile devices (iOS etc.) don&#8217;t support pre-downloading HTML5 audio and video, which means the site doesn&#8217;t work on them. This is apparently done to stop users racking up data usage on 4G, as the files are only downloaded once the user clicks play. It&#8217;s is a shame, because I&#8217;d have loved to use this on the iPad!</p>
 
-
-
-<article>
-  
-<h1><a href="/blog/2013/03/30/blog-migrated/">th3james&#8217; blog IV: A new home</a></h1>
-<time datetime="2013-03-30T11:07:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>30</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/">Backbone.ViewManager - A backbone extension to stop view memory/binding leaks</a></h1>
-<time datetime="2012-08-10T00:00:00+01:00" pubdate><span class='month'>Aug</span> <span class='day'>10</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/">Fixing locale issues over SSH after zsh upgrade</a></h1>
-<time datetime="2012-07-18T00:00:00+01:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-  
-  <h2>2011</h2>
-
-<article>
-  
-<h1><a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (feat. Backbone.js) (Slides)</a></h1>
-<time datetime="2011-11-21T00:00:00+00:00" pubdate><span class='month'>Nov</span> <span class='day'>21</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/09/13/understanding-undefined-in-javascript/">Understanding undefined, null and testing variable assignment in Javascript</a></h1>
-<time datetime="2011-09-13T00:00:00+01:00" pubdate><span class='month'>Sep</span> <span class='day'>13</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/">Using PJAX with Rails to AJAX navigation</a></h1>
-<time datetime="2011-05-30T00:00:00+01:00" pubdate><span class='month'>May</span> <span class='day'>30</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/05/17/styling-active-links-in-rails/">Styling active links in Rails</a></h1>
-<time datetime="2011-05-17T00:00:00+01:00" pubdate><span class='month'>May</span> <span class='day'>17</span> <span class='year'>2011</span></time>
-
-
-</article>
-
+<p>It&#8217;s also worth noting, I built this using a tool I&#8217;m developing with <a href="https://twitter.com/amulligan">@amulligan</a> to make building Backbone.js apps easier, but more on that later :-)</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">th3james</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-10T08:16:00+01:00" pubdate data-updated="true">May 10<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/backbone-dot-js/'>Backbone.js</a>, <a class='category' href='/blog/categories/coffeescript/'>Coffeescript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://th3james.github.com/blog/2013/05/10/browserloop-remix-music-in-your-browser/" data-via="" data-counturl="http://th3james.github.com/blog/2013/05/10/browserloop-remix-music-in-your-browser/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/30/blog-migrated/" title="Previous Post: th3james' blog IV: A new home">&laquo; th3james' blog IV: A new home</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
