@@ -9,7 +9,7 @@
   <meta name="author" content="th3james">
 
   
-  <meta name="description" content="I&#8217;ve just finished building a tool which let&#8217;s you remix loops of my band&#8217;s newest single. It&#8217;s build using Backbone.js and &hellip;">
+  <meta name="description" content="A.K.A. &#8220;What I wish people had told me about testing&#8221; Test driven development is now widely recognised as &#8216;a good thing&#8217;, but &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,148 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/25/testing-code-is-simple/">Testing Code Is Simple</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-25T15:39:00+01:00" pubdate data-updated="true">Sep 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>A.K.A. &#8220;What I wish people had told me about testing&#8221;</h3>
+
+<p>Test driven development is now widely recognised as &#8216;a good thing&#8217;, but for developers who aren&#8217;t already practicing it already, the world of TDD can appear quite compilicated. Choosing a testing framework and assertion library, picking between factories and fixtures, deciding how to handle database state teardown, how to mock objects, what&#8217;s the correct phrasing of my tests… From the outside, the world of automated software testing can seem like more work than it&#8217;s worth.</p>
+
+<p>These issues put me off doing diving into TDD for a long time. Having been testing for a while now, here are some of the things I wish people had told me before I started:</p>
+
+<h2>Testing software is actually pretty simple</h2>
+
+<p>Writing software tests consists of the following steps:</p>
+
+<ol>
+<li>Write code that interacts with the code you&#8217;re building</li>
+<li>Write assertions about what you expect to happen</li>
+<li>There is no step 3</li>
+</ol>
+
+
+<p>Let&#8217;s go through an example. Recently, I came to be working on a large client-side JavaScript application. Coming from a Ruby background and having never tested JavaScript before, I wondered what was the simplest setup I could create for testing would be. Here it is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  // tests.js, include this on a page with your application code
+</span><span class='line'>
+</span><span class='line'>  /* Our testing library */
+</span><span class='line'>  assert = function(result) {
+</span><span class='line'>    if (!result) {
+</span><span class='line'>      throw new Error("A test failed");
+</span><span class='line'>    }
+</span><span class='line'>  };
+</span><span class='line'>  /* end of testing library */
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>  /* tests */
+</span><span class='line'>  // MyMathLibrary.add given 2 arguments returns their sum
+</span><span class='line'>  result = MyMathLibrary.add(1, 2);
+</span><span class='line'>  assert(result === 3)
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it. Run this in your browser, if you get an error in your console, your tests are failing. If not, congratlations, your tests are passing. The extent of our testing library is one function called assert, that throws an error when given a false value.</p>
+
+<p>This is genuinely all you need to start practicing TDD. Write a short description of expected (but unimplemented) behavior, write some code that creates context and assert the expected state. Then write code to make it pass and repeat:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  // MyMathLibrary.multiply given 2 numbers returns the multiplication of the 2
+</span><span class='line'>  result = MyMathLibrary.multiply(5,3)
+</span><span class='line'>  assert(result === 15)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Just start writing tests</h2>
+
+<p>Writing well factored, fast, maintainable tests is tricky, and a different skill from writing good code. Expect to be bad at it at first. Don&#8217;t let this put you off: One of the best things about tests is that even poorly written tests can produce a large amount of value. Just start writing tests and learn as you go.</p>
+
+<h2>Testing is not a DSL</h2>
+
+<p>RSpec has a lot to answer for. Most developers starting (particularly in Ruby) will initially be confronted by the &#8216;spec&#8217; style of writing tests. I think this is unfortunate, as certainly for me, and I expect for many others, it obscures the fact that tests are just code and assertions. For this reason, I would recommend when starting testing that you avoid the &#8216;spec&#8217; style syntax, and instead master the basics using the &#8216;test&#8217; or &#8216;unit&#8217; style syntax.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  # An example in Mocha.js using the 'qunit' syntax
+</span><span class='line'>  test('.sum ', function(){
+</span><span class='line'>    // some code goes in here
+</span><span class='line'>  })</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Keep your test setup simple to start</h2>
+
+<p>When you start testing, most people will recommend a laundry list of libraries you should use to start testing. Mocking, Factories, Transaction tests… All useful features, but when you&#8217;re starting out, I&#8217;d recommend keeping to a bare minimum: a testing framework for reporting passing/failing tests and an assertion library to get better error messages. My personal picks are:</p>
+
+<p><strong>Javascript</strong>:</p>
+
+<ul>
+<li> Testing: Mocha.js (using the qunit syntax)</li>
+<li> Assertions: Chai.js (using the assert syntax)</li>
+</ul>
+
+
+<p><strong>Ruby</strong>:</p>
+
+<ul>
+<li> Minitest (using the unit syntax)</li>
+</ul>
+
+
+<p>After you&#8217;ve written tests for a little while, it should become clear why (and if) you need factories, mocking and the rest. Then is the right time to start using them.</p>
+
+<h2>Summary</h2>
+
+<p>Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it&#8217;s also hugely satisfying. As such, it&#8217;s not surprising that so much tooling and methodology has sprung up around it, and for the most part, these are good things. However, when starting testing, it&#8217;s easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
+Regardless of how you choose to test, the most important things that you are doing it. Good luck</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -448,6 +590,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/25/testing-code-is-simple/">Testing code is simple</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/05/10/browserloop-remix-music-in-your-browser/">BrowserLoop: Remix music in your browser</a>
       </li>
     
@@ -461,10 +607,6 @@
     
       <li class="post">
         <a href="/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/">Fixing locale issues over SSH after zsh upgrade</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/">Taking JavaScript Seriously (feat. Backbone.js) (Slides)</a>
       </li>
     
   </ul>
