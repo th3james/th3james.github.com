@@ -57,8 +57,9 @@ RSpec has a lot to answer for. Most developers starting (particularly in Ruby) w
 
 ```
   # An example in Mocha.js using the 'qunit' syntax
-  test('.sum ', function(){
-    // some code goes in here
+  test('MyMathLibrary.multiply given 2 numbers returns the multiplication of the 2', function(){
+    result = MyMathLibrary.multiply(5,3)
+    assert(result === 15)
   })
 ```
 
