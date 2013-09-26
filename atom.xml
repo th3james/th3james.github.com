@@ -4,7 +4,7 @@
   <title><![CDATA[Saving the planet, one website at a time]]></title>
   <link href="http://th3james.github.com/atom.xml" rel="self"/>
   <link href="http://th3james.github.com/"/>
-  <updated>2013-09-25T15:54:58+01:00</updated>
+  <updated>2013-09-26T19:19:03+01:00</updated>
   <id>http://th3james.github.com/</id>
   <author>
     <name><![CDATA[th3james]]></name>
@@ -20,7 +20,7 @@
     <id>http://th3james.github.com/blog/2013/09/25/testing-code-is-simple</id>
     <content type="html"><![CDATA[<h3>A.K.A. &#8220;What I wish people had told me about testing&#8221;</h3>
 
-<p>Test driven development is now widely recognised as &#8216;a good thing&#8217;, but for developers who aren&#8217;t already practicing it already, the world of TDD can appear quite compilicated. Choosing a testing framework and assertion library, picking between factories and fixtures, deciding how to handle database state teardown, how to mock objects, what&#8217;s the correct phrasing of my tests… From the outside, the world of automated software testing can seem like more work than it&#8217;s worth.</p>
+<p>Test driven development is now widely recognised as &#8216;a good thing&#8217;, but for developers who aren&#8217;t already practicing it, the world of TDD can appear quite compilicated. Choosing a testing framework and assertion library, picking between factories and fixtures, deciding how to handle database state teardown, how to mock objects, what&#8217;s the correct phrasing of my tests… From the outside, the world of automated software testing can seem like more work than it&#8217;s worth.</p>
 
 <p>These issues put me off doing diving into TDD for a long time. Having been testing for a while now, here are some of the things I wish people had told me before I started:</p>
 
@@ -70,7 +70,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>That&#8217;s it. Run this in your browser, if you get an error in your console, your tests are failing. If not, congratlations, your tests are passing. The extent of our testing library is one function called assert, that throws an error when given a false value.</p>
+<p>That&#8217;s it. Run this in your browser, if you get an error in your console, your tests are failing. If not, congratulations, your tests are passing. The extent of our testing library is one function called assert, that throws an error when given a false value.</p>
 
 <p>This is genuinely all you need to start practicing TDD. Write a short description of expected (but unimplemented) behavior, write some code that creates context and assert the expected state. Then write code to make it pass and repeat:</p>
 
@@ -125,7 +125,7 @@
 
 <h2>Summary</h2>
 
-<p>Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it&#8217;s also hugely satisfying. As such, it&#8217;s not surprising that so much tooling and methodology has sprung up around it, and for the most part, these are good things. However, when starting testing, it&#8217;s easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
+<p>Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it&#8217;s also hugely satisfying. As such, it&#8217;s not surprising that so much tooling and methodology has sprung up around it. For the most part, these are good things. However, when starting testing, it&#8217;s easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
 Regardless of how you choose to test, the most important things that you are doing it. Good luck</p>
 ]]></content>
   </entry>
