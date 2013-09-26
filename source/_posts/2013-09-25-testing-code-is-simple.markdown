@@ -7,7 +7,7 @@ categories:
 ---
 
 ### A.K.A. "What I wish people had told me about testing"
-Test driven development is now widely recognised as 'a good thing', but for developers who aren't already practicing it already, the world of TDD can appear quite compilicated. Choosing a testing framework and assertion library, picking between factories and fixtures, deciding how to handle database state teardown, how to mock objects, what's the correct phrasing of my tests… From the outside, the world of automated software testing can seem like more work than it's worth.
+Test driven development is now widely recognised as 'a good thing', but for developers who aren't already practicing it, the world of TDD can appear quite compilicated. Choosing a testing framework and assertion library, picking between factories and fixtures, deciding how to handle database state teardown, how to mock objects, what's the correct phrasing of my tests… From the outside, the world of automated software testing can seem like more work than it's worth.
 
 These issues put me off doing diving into TDD for a long time. Having been testing for a while now, here are some of the things I wish people had told me before I started:
 
@@ -39,7 +39,7 @@ Let's go through an example. Recently, I came to be working on a large client-si
 
 ```
 
-That's it. Run this in your browser, if you get an error in your console, your tests are failing. If not, congratlations, your tests are passing. The extent of our testing library is one function called assert, that throws an error when given a false value. 
+That's it. Run this in your browser, if you get an error in your console, your tests are failing. If not, congratulations, your tests are passing. The extent of our testing library is one function called assert, that throws an error when given a false value. 
 
 This is genuinely all you need to start practicing TDD. Write a short description of expected (but unimplemented) behavior, write some code that creates context and assert the expected state. Then write code to make it pass and repeat:
 
@@ -78,5 +78,5 @@ When you start testing, most people will recommend a laundry list of libraries y
 After you've written tests for a little while, it should become clear why (and if) you need factories, mocking and the rest. Then is the right time to start using them.
 
 ## Summary
-Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it's also hugely satisfying. As such, it's not surprising that so much tooling and methodology has sprung up around it, and for the most part, these are good things. However, when starting testing, it's easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
+Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it's also hugely satisfying. As such, it's not surprising that so much tooling and methodology has sprung up around it. For the most part, these are good things. However, when starting testing, it's easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
 Regardless of how you choose to test, the most important things that you are doing it. Good luck
