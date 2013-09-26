@@ -1,3 +1,22 @@
+## New post process
+Create a new post
+
+    rake new_post\["My new post"\] # Funky zsh syntax
+
+Check out the formatting
+
+    rake preview
+
+Generate and deploy pages (if .swp files crash the deploy, delete them)
+
+    rake generate
+    rake deploy
+
+Commit and push to source branch
+
+    git push origin source
+
+
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
@@ -19,6 +38,7 @@ Check out [Octopress.org](http://octopress.org/docs) for guides and documentatio
 [![Build Status](https://travis-ci.org/imathis/octopress.png?branch=master)](https://travis-ci.org/imathis/octopress)
 
 We love to see people contributing to Octopress, whether it's a bug report, feature suggestion or a pull request. At the moment, we try to keep the core slick and lean, focusing on basic blogging needs, so some of your suggestions might not find their way into Octopress. For those ideas, we started a [list of 3rd party plug-ins](https://github.com/imathis/octopress/wiki/3rd-party-plugins), where you can link your own Octopress plug-in repositories. For the future, we're thinking about ways to easier add them them into our main releases.
+
 
 ## Deployment
 
