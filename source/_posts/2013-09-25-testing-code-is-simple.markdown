@@ -79,4 +79,5 @@ After you've written tests for a little while, it should become clear why (and i
 
 ## Summary
 Testing your code is not only the path to fewer bugs, easier maintainence and confident refactoring, it's also hugely satisfying. As such, it's not surprising that so much tooling and methodology has sprung up around it. For the most part, these are good things. However, when starting testing, it's easy to confuse these tools and processes for testing itself. I hope this serves as a call not to run before you can walk, and a reminder of the core simplicity of testing.
-Regardless of how you choose to test, the most important things that you are doing it. Good luck
+
+Regardless of how you choose to test, the most important thing is that you are doing it. Good luck
