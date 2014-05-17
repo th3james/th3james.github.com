@@ -16,6 +16,11 @@ Commit and push to source branch
 
     git push origin source
 
+## This might be a bit broken
+I think the _deploy folder is supposed to be a self contained git repo, which the deploy task writes to.
+It writes the compiled blog into this folder, then tries to push it to the master branch. But because
+it isn't a separate git repo, it just tries to use the parent source repo, and nothing happens.
+TLDR: last time I had to manually copy the _deploy folder to the master branch and push it up :-(
 
 ## What is Octopress?
 
