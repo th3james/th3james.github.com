@@ -24,7 +24,7 @@ It shouldn't be a surprise that TDD acts as a force on your code, that feedback 
 
 TDD applies this pressure, by forcing you to interact with the APIs your code exposes, and create the dependencies it requires. This feedback acts as a tool which helps you feel the pain in your design.
 
-However, this doesn't mean that to practice TDD is to surrender all control to our tests and powerlessly slip into an obsession of faster and smaller units. It remains up to the developer to interpret this feedback, amongst all the other feedback and intuition that they have, and make sensible decisions.
+However, this doesn't mean that to practice TDD is to surrender all control to our tests and powerlessly slip into an obsession with faster and smaller units. It remains up to the developer to interpret test feedback, amongst all the other feedback and intuition that they have, and make sensible decisions.
 
 The vast majority of people using TDD do not blindly let it destroy their designs, creating an ever expanding number of classes, repositories and service objects. Instead, they see it for what it is: Not a silver bullet or religion, but a tool which helps you make better design decisions.
 
