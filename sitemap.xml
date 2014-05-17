@@ -2,62 +2,66 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://th3james.github.com/blog/2011/05/17/styling-active-links-in-rails/</loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2011/05/30/using-pjax-with-rails-to-ajax-navigation/
         </loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2011/09/13/understanding-undefined-in-javascript/
         </loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2011/11/21/taking-javascript-seriously-feat-backbonejs-s/
         </loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2012/07/18/fixing-locale-issues-over-ssh-after-zsh-upgra/
         </loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2012/08/10/backboneviewmanager-a-backbone-extension-to-s/
         </loc>
-        <lastmod>2013-03-30T10:31:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://th3james.github.com/blog/2013/03/30/blog-migrated/</loc>
-        <lastmod>2013-03-30T11:36:07+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://th3james.github.com/blog/2013/05/10/browserloop-remix-music-in-your-browser/
         </loc>
-        <lastmod>2013-05-10T08:42:40+01:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://th3james.github.com/blog/2013/09/25/testing-code-is-simple/</loc>
-        <lastmod>2013-09-26T19:40:07+01:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://th3james.github.com/blog/2014/05/17/tdd-is-a-feedback-tool/</loc>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://th3james.github.com/blog/archives/</loc>
-        <lastmod>2013-09-26T19:40:07+01:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://th3james.github.com/</loc>
-        <lastmod>2013-09-26T19:40:07+01:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://th3james.github.com/robots.txt</loc>
-        <lastmod>2013-03-30T09:59:12+00:00</lastmod>
+        <lastmod>2014-05-17T16:39:08+01:00</lastmod>
     </url>
 </urlset>

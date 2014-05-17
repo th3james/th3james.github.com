@@ -4,7 +4,7 @@
   <title><![CDATA[Saving the planet, one website at a time]]></title>
   <link href="http://th3james.github.com/atom.xml" rel="self"/>
   <link href="http://th3james.github.com/"/>
-  <updated>2013-09-26T19:40:21+01:00</updated>
+  <updated>2014-05-17T16:39:09+01:00</updated>
   <id>http://th3james.github.com/</id>
   <author>
     <name><![CDATA[th3james]]></name>
@@ -13,6 +13,38 @@
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
+  <entry>
+    <title type="html"><![CDATA[TDD is a feedback tool, not a religion]]></title>
+    <link href="http://th3james.github.com/blog/2014/05/17/tdd-is-a-feedback-tool/"/>
+    <updated>2014-05-17T15:48:00+01:00</updated>
+    <id>http://th3james.github.com/blog/2014/05/17/tdd-is-a-feedback-tool</id>
+    <content type="html"><![CDATA[<p>ICYMI, there’s currently a discussion going on around TDD, after <a href="https://twitter.com/dhh">DHH</a> declared it ‘dead&#8217; at RailsConf 2014. This lead to a discussion series between himself, TDD legend <a href="https://twitter.com/KentBeck">Kent Beck</a>, and <a href="https://twitter.com/martinfowler">Martin Fowler</a>, the second of which took place on Google Hangouts yesterday:</p>
+
+<iframe width="560" height="315" src="http://th3james.github.com//www.youtube.com/embed/JoTB2mcjU7w" frameborder="0" allowfullscreen></iframe>
+
+
+<p>In this discussion, David makes the claim that TDD leads you down a path of aggressive and unnecessary isolation of your code, citing ‘Hexagonal Rails’ as an example of the damage that TDD does when applied absolutely:</p>
+
+<p><a href="https://gist.github.com/dhh/4849a20d2ba89b34b201">https://gist.github.com/dhh/4849a20d2ba89b34b201</a></p>
+
+<p>I think most people would find the code in the example pretty poor. The intent of the code is heavily obscured, and I find it hard to read. This kind of isolation might make sense when working on a larger, more complicated domain, but given the complexity of this example, it&#8217;s absolutely overkill.</p>
+
+<p>The question is &#8220;Was TDD responsible for the author arriving at this design?&#8221;. DHH paints hardcore-TDD practitioners as dopamine addicts; constantly craving their next fix of the &#8216;Red-Green-Refactor&#8217; cycle, they will do anything to make their speed though this cycle quicker. It’s certainly true that code this heavily isolated is easy to unit test.</p>
+
+<p>It shouldn&#8217;t be a surprise that TDD acts as a force on your code, that feedback is the reason we choose to write tests first. <a href="https://twitter.com/garybernhardt">Gary Bernhardt</a>&#8217;s post <a href="https://www.destroyallsoftware.com/blog/2014/test-isolation-is-about-avoiding-mocks">Test isolation is about avoiding mocks</a> touches on this idea:</p>
+
+<p>&#8220;Most of us think that small functions are better, yet hundred-plus line functions are common [&#8230;] The reason is that there&#8217;s no pressure exerted on us.&#8221;</p>
+
+<p>TDD applies this pressure, by forcing you to interact with the APIs your code exposes, and create the dependencies it requires. This feedback acts as a tool which helps you feel the pain in your design.</p>
+
+<p>However, this doesn&#8217;t mean that to practice TDD is to surrender all control to our tests and powerless slip into an obsession of faster and smaller units. It remains up to the developer to interpret this feedback, amongst all the other feedback and intuition that they have, and make sensible decisions.</p>
+
+<p>The vast majority of people using TDD do not blindly let it destroy their designs, creating an ever expanding number of classes, repositories and service objects. Instead, they see it for what it is: Not a silver bullet or religion, but a tool which helps you make better design decisions.</p>
+
+<p>Before I wrap this up, I’d like to thank DHH, Kent, and Martin for having these discussions. Despite some of the more troll-y posts, I think the general dialog around #isTDDDead has actually sparked some quality debate, and it has driven me to some new insights about how I write and test code. Hopefully we can all remember we&#8217;re still figuring this out, and treat this as an opportunity to learn.</p>
+]]></content>
+  </entry>
+
   <entry>
     <title type="html"><![CDATA[Testing code is simple]]></title>
     <link href="http://th3james.github.com/blog/2013/09/25/testing-code-is-simple/"/>
