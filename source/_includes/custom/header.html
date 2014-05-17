@@ -1,6 +1,11 @@
 <hgroup>
-  <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
-  {% if site.subtitle %}
-    <h2>{{ site.subtitle }}</h2>
-  {% endif %}
+  <div id="header-avatar" class="header-container">
+    <img class="header-container" src="http://s.gravatar.com/avatar/ba257f3320b09da4617a46b1c076344a?s=80"/>
+  </div>
+  <div id="title" class="header-container">
+    <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+    {% if site.subtitle %}
+      <h2>{{ site.subtitle }}</h2>
+    {% endif %}
+  </div>
 </hgroup>
