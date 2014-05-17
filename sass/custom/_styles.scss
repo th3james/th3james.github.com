@@ -1,2 +1,19 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+header {
+  .header-container {
+    float: left;
+    width: 80%;
+  }
+
+  #header-avatar {
+    width:100px;
+  }
+
+  #header-avatar img {
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
+  }
+}
